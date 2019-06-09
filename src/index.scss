@@ -42,6 +42,18 @@ main {
     }
 }
 
+.categoryList {
+    &-item {
+        flex: 1 1 30%;
+        margin: 8px;
+
+        img {
+            height: auto;
+            width: 100%;
+        }
+    }
+}
+
 .results {
     &-initialSearch {
         text-align: center;

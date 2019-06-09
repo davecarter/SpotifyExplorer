@@ -27,7 +27,13 @@ export const CategoriesList = () => {
 
   const renderCats = () => {
     console.log("rendered", categoriesList);
-    return categoriesList.map(item => <img src={item.icons[0].url} />);
+    return categoriesList.map(item => {
+      return (
+        <div className="categoryList-item">
+          <img src={item.icons[0].url} />
+        </div>
+      );
+    });
   };
 
   return renderCats();
