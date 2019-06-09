@@ -1,7 +1,8 @@
 import React from "react";
 import { Navigation } from "./Navigation";
-import { NewReleases } from "./NewReleases";
+import { NewReleasesList } from "./NewReleasesList";
 import { CategoriesList } from "./CategoriesList";
+import { NewReleasesArtist } from "./NewReleasesArtist";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export const App = () => (
@@ -13,9 +14,16 @@ export const App = () => (
       <section>
         <h1 className="page-heading">Spotify Explorer</h1>
       </section>
-      <section>
-        <Route path="/" exact component={NewReleases} />
+      <section className="page-layout">
+        <Route path="/" exact component={NewReleasesList} />
         <Route path="/categories" component={CategoriesList} />
+        <Route
+          path="/album/:artist"
+          render={router => {
+            const { artist } = router.match.params;
+            return <NewReleasesArtist artist={artist} />;
+          }}
+        />
       </section>
     </main>
   </Router>

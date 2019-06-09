@@ -1,5 +1,5 @@
 body {
-    background-color: #09aaff;
+    background-color: #1ed760;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: lighter;
@@ -18,19 +18,24 @@ main {
         text-align: center;
     }
 
+    &-layout {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
     &-navigation {
-        background-color: rgba(255,255,255,.6);
+        display: flex;
         list-style-type: none;
         margin: 0;
-        padding: 16px 32px;
+        padding: 16px 0;
 
         &-item {
-            display: inline-block;
-            margin-right: 24px;
-
+            display: inline-flex;
+            
             a {
-                color: black;
+                color: white;
                 font-size: 1.2em;
+                padding: 24px;
                 text-decoration: none;
             }
         }
@@ -40,5 +45,15 @@ main {
 .results {
     &-initialSearch {
         text-align: center;
+    }
+}
+
+.newReleases {
+    flex: 1 1 46%;
+    margin-right: 24px;
+
+    &-item {
+        height: auto;
+        width: 100%;
     }
 }
