@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { SPOTIFY_API } from "../config.js";
+import { NewReleasesItem } from "./NewReleasesItem.js";
 
-export const NewReleases = () => {
+export const NewReleasesList = () => {
   const { new_releases_url, authorization } = SPOTIFY_API;
   const [newReleases, setNewReleases] = useState([]);
   useEffect(() => {
@@ -18,10 +19,10 @@ export const NewReleases = () => {
       .catch(err => console.log(err));
   }, []);
 
-  const renderCats = () => {
-    console.log("rendered", newReleases);
-    return newReleases.map(item => <img src={item.images[0].url} />);
-  };
-
-  return renderCats();
+  return newReleases.map((item, id) => {
+    const icon = item.images[0].url;
+    const artist = item.artists[0].name;
+    console.log(item);
+    return <NewReleasesItem key={id} cover={icon} artist={artist} />;
+  });
 };
