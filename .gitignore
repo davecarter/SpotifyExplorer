@@ -3,3 +3,4 @@ node
 osx
 windows
 node_modules
+.DS_Store
