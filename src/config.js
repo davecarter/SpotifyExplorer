@@ -3,6 +3,7 @@
 export const SPOTIFY_API = {
   new_releases_url: "https://api.spotify.com/v1/browse/new-releases",
   categories_url: "https://api.spotify.com/v1/browse/categories",
+  artist_url: "https://api.spotify.com/v1/artists/",
   country: "ES",
   locale: "es_ES",
   limit: 9,
