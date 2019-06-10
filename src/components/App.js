@@ -18,10 +18,10 @@ export const App = () => (
         <Route path="/" exact component={NewReleasesList} />
         <Route path="/categories" component={CategoriesList} />
         <Route
-          path="/album/:artist"
+          path="/album/:artist/:idArtist"
           render={router => {
-            const { artist } = router.match.params;
-            return <NewReleasesArtist artist={artist} />;
+            const { artist, idArtist } = router.match.params;
+            return <NewReleasesArtist artist={artist} idArtist={idArtist} />;
           }}
         />
       </section>
