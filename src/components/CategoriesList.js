@@ -26,7 +26,6 @@ export const CategoriesList = () => {
   }, []);
 
   const renderCats = () => {
-    console.log("rendered", categoriesList);
     return categoriesList.map(item => {
       return (
         <div className="categoryList-item">
