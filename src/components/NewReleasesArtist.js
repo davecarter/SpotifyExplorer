@@ -1,4 +1,4 @@
 import React from "react";
-export const NewReleasesArtist = ({ artist }) => {
-  return <h1>{`${artist} page`}</h1>;
+export const NewReleasesArtist = ({ artist, idArtist }) => {
+  return <h1>{`${artist} ${idArtist} page`}</h1>;
 };

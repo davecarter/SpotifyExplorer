@@ -22,7 +22,15 @@ export const NewReleasesList = () => {
   return newReleases.map((item, id) => {
     const icon = item.images[0].url;
     const artist = item.artists[0].name;
+    const idArtist = item.artists[0].id;
     console.log(item);
-    return <NewReleasesItem key={id} cover={icon} artist={artist} />;
+    return (
+      <NewReleasesItem
+        key={id}
+        cover={icon}
+        artist={artist}
+        idArtist={idArtist}
+      />
+    );
   });
 };
