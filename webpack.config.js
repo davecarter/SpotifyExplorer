@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const { env } = process;
+const { env, CDN } = process;
 
 module.exports = {
   mode: env.NODE_ENV,
@@ -11,10 +11,12 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "./dist"
+    contentBase: "./dist",
+    historyApiFallback: true
   },
   output: {
     filename: "[name].bundle.js",
+    publicPath: CDN || "/",
     path: path.resolve(__dirname, "dist")
   },
 
@@ -49,7 +51,7 @@ module.exports = {
       "process.env.NODE_ENV": JSON.stringify(env.NODE_ENV)
     }),
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: true,
       hash: true,
       template: "./src/index.html",
       filename: "index.html"
