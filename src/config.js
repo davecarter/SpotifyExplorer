@@ -9,5 +9,5 @@ export const SPOTIFY_API = {
   limit: 9,
   offset: 5,
   authorization:
-    "Bearer BQBqDERALz51T9TrIJQlgX5668ZXKM_EJMwV8me1dzAFghj57qireAJqbqe9ruaaGL3cj7ywje0OPCnLyXQWkaTumNL5ANZ4WGSWIJRgjgD4p3ND5iQmktSQgLah8GtAKom7-uk4yhq7_yk5uQ"
+    "Bearer BQCVC7arpPvMx3VH3iEnGZ86m-G5swlrrDvsRp3oVufuN0_5SO3wILkl9gGpdxGlGdgTsPqvduke2hDWFnt4YUPGRFdCNFRdaNGkUe9624nJBS4a6sXqdv__F50VurBXr3Zu5uaydd-4d3-s_w"
 };
