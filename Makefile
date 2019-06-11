@@ -1,5 +1,5 @@
 export NODE_ENV ?= production
-export CDN ?= https://rr5-platzi.surge.sh/
+export CDN ?= https://react-router-project.d4vecarter.now.sh
 
 .PHONY: build
 .DEFAULT_GOAL := help
@@ -8,8 +8,7 @@ build: ## Build static and upload to CDN
 	npx webpack
 
 statics:
-	cp -R ./src/statics/ ./dist
-	surge ./dist -d $(CDN)
+	npm run now-build
 
 start:
 	npx webpack-dev-server --open

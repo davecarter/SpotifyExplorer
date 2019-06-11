@@ -7,7 +7,7 @@ export const Navigation = () => (
     <ul className={baseClass}>
       <img
         className={`${baseClass}-logo`}
-        src={`${process.env.CDN}spotifyLogo.png`}
+        src={`${process.env.CDN}/spotifyLogo.png`}
       />
       <li className={`${baseClass}-item`}>
         <Link to="/">New releases</Link>

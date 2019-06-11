@@ -10,8 +10,8 @@
       }
     },
     {
-      "src": "src/statics",
-      "use": "@now/static-build"
+      "src": "src/statics/spotifyLogo.png",
+      "use": "@now/static"
     }
   ]
 }
