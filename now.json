@@ -8,6 +8,10 @@
       "config": {
         "distDir": "dist"
       }
+    },
+    {
+      "src": "src/statics/spotifyLogo.png",
+      "use": "@now/static"
     }
   ]
 }
