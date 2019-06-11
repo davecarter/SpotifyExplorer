@@ -2,10 +2,10 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const { env, CDN } = process;
+const { NODE_ENV, CDN } = process.env;
 
 module.exports = {
-  mode: env.NODE_ENV,
+  mode: NODE_ENV,
   entry: {
     app: "./src/index.js"
   },
@@ -33,22 +33,14 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"]
-      },
-      {
-        test: /\.(jpg|png)$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[path][name].[hash].[ext]"
-          }
-        }
       }
     ]
   },
 
   plugins: [
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(env.NODE_ENV)
+      "process.env.NODE_ENV": JSON.stringify(NODE_ENV),
+      "process.env.CDN": JSON.stringify(CDN)
     }),
     new HtmlWebpackPlugin({
       inject: true,
