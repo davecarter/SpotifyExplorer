@@ -8,6 +8,10 @@
       "config": {
         "distDir": "dist"
       }
+    },
+    {
+      "src": "src/statics",
+      "use": "@now/static-build"
     }
   ]
 }
