@@ -8,6 +8,7 @@ build: ## Build static and upload to CDN
 	npx webpack
 
 statics:
+	cp -R ./src/statics/ ./dist
 	npm run now-build
 
 start:
