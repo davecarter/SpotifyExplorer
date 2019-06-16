@@ -1,19 +1,16 @@
 export NODE_ENV ?= production
-export CDN ?= https://react-router-project.d4vecarter.now.sh
 
-.PHONY: build
+.PHONY: build  start  start_ssr help
 .DEFAULT_GOAL := help
 
-build: ## Build static and upload to CDN
-	npx webpack
-
-statics:
-	npm run now-build
-
 start:
-	npx webpack-dev-server --open
+	npx webpack-dev-server --open --port 3000
 
-start_ssr: build statics ## start a local SSR service
+build:
+	npx webpack
+	cp -R ./src/statics/ ./dist
+
+start_ssr: build ## start a local SSR service
 	node server/index.js
 
 help: ## show help

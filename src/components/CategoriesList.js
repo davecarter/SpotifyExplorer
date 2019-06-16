@@ -1,26 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { SPOTIFY_API } from "../config.js";
+import { client, SPOTIFY_API } from "../domain/spotify";
 
 export const CategoriesList = () => {
-  const {
-    categories_url,
-    country,
-    locale,
-    limit,
-    offset,
-    authorization
-  } = SPOTIFY_API;
+  const { categories_url, country, locale, limit, offset } = SPOTIFY_API;
   const [categoriesList, setCategoriesList] = useState([]);
   useEffect(() => {
     const categoriesListUrl = `${categories_url}?country=${country}&locale=${locale}&limit=${limit}&offset=${offset}`;
-    fetch(categoriesListUrl, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: authorization
-      }
-    })
-      .then(res => res.json())
+    client(categoriesListUrl)
       .then(data => setCategoriesList(data.categories.items))
       .catch(err => console.log(err));
   }, []);
