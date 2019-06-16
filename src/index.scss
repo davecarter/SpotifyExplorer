@@ -8,18 +8,26 @@ body {
 }
 
 main {
-    max-width: 900px;
+    background: url(https://react-router-project.d4vecarter.now.sh/cover.jpg) fixed;
+    background-size: cover;
     margin: 0 auto;
-    height: 100vh;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    margin: 0 auto;
+    max-width: 90%;
 }
 
 .homePage {
     align-items: center;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .7);
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 2em;
+    width: 100%;
 
     &-subheading,
     &-description {
@@ -30,20 +38,29 @@ main {
 
 .page {
     &-heading {
-        font-size: 2.5em;
-        text-align: center;
+        color: white;
+        display: flex;
+        text-decoration: none;
+
+        h1 {
+            font-size: 2.3em;
+            margin: 28px 0 0 -10px;
+            text-align: center;
+        }
     }
 
     &-layout {
         display: flex;
         flex-wrap: wrap;
+        margin: 0 auto;
+        max-width: 90%;
     }
 
     &-navigation {
         display: flex;
         list-style-type: none;
-        margin: 0;
-        padding: 16px 0;
+        margin: 21px 0 0;
+        padding:0;
 
         &-item {
             display: inline-flex;
@@ -55,6 +72,24 @@ main {
                 text-decoration: none;
             }
         }
+
+        &-logo {
+            margin: 20px 0;
+        }
+    }
+}
+
+.categoryPage {
+    margin: 0 auto;
+    width: 50%;
+
+    &-title {
+        text-align: center;
+    }
+
+    &-image {
+        height: auto;
+        width: 100%;
     }
 }
 
@@ -77,11 +112,30 @@ main {
 }
 
 .newReleases {
-    flex: 1 1 46%;
-    margin-right: 24px;
+    flex: 1 1 32%;
+    margin: 0 24px 24px 0;
 
     &-item {
         height: auto;
+        opacity: .7;
+        transition: opacity ease .5s;
         width: 100%;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &-albumName {
+        color: lightgreen;
+    }
+
+    &-link {
+    background-color: forestgreen;
+    color: white;
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 12px;
+    text-decoration: none;
     }
 }
