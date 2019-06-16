@@ -3,15 +3,8 @@
   "alias": ["React Router Platzi"],
   "builds": [
     {
-      "src": "package.json",
-      "use": "@now/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    },
-    {
-      "src": "src/statics/spotifyLogo.png",
-      "use": "@now/static"
+      "src": "server/index.js",
+      "use": "@now/node"
     }
   ]
 }

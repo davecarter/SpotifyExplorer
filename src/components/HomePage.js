@@ -1,16 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { isLogged } from "../domain/spotify";
 
 const baseClass = "homePage";
 
 export const HomePage = ({ location }) => {
-  const { hash } = location;
-  const getToken = () => {
-    window.location.href = "/login";
-    console.log("LOGIN", hash);
-    const access_token =
-      hash.split("=") || console.log("ACCESSTOKEN", access_token);
-  };
+  const [logged, setLogged] = useState(false);
+  useEffect(() => {
+    setLogged(isLogged());
+  }, []);
 
   return (
     <section className={baseClass}>
@@ -21,7 +18,7 @@ export const HomePage = ({ location }) => {
       </p>
       <p>Please login into Spotify:</p>
 
-      <button onClick={getToken}>LOGIN</button>
+      {!logged ? <a href="/login">Login</a> : <h3>Logged In!</h3>}
     </section>
   );
 };

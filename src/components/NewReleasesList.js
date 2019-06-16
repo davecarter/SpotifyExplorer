@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { SPOTIFY_API } from "../config.js";
 import { NewReleasesItem } from "./NewReleasesItem.js";
+import { client, SPOTIFY_API } from "../domain/spotify";
 
 export const NewReleasesList = () => {
-  const { new_releases_url, authorization } = SPOTIFY_API;
+  const { new_releases_url } = SPOTIFY_API;
   const [newReleases, setNewReleases] = useState([]);
   useEffect(() => {
     const newReleasesUrl = new_releases_url;
-    fetch(newReleasesUrl, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: authorization
-      }
-    })
-      .then(res => res.json())
+    client(newReleasesUrl)
       .then(data => setNewReleases(data.albums.items))
       .catch(err => console.log(err));
   }, []);
