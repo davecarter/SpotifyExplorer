@@ -14,7 +14,7 @@ export const HomePage = ({ location }) => {
       <h2 className={`${baseClass}-subheading`}>React Router Platzi Course</h2>
       <p className={`${baseClass}-description`}>
         This application is an SPA made with ReactJS, React Router 5 and lots of
-        💚.
+        💚. Browse Spotify categories, artists and new releases.
       </p>
       <p>Please login into Spotify:</p>
 
