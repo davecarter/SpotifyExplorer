@@ -7,8 +7,11 @@ start:
 	npx webpack-dev-server --open --port 3000
 
 build:
-	npx webpack
 	cp -R ./src/statics/ ./dist
+	npx webpack
+
+deploy: build
+	now
 
 start_ssr: build ## start a local SSR service
 	node server/index.js
