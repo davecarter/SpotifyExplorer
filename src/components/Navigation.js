@@ -7,7 +7,7 @@ export const Navigation = () => (
     <Link to="/" className="page-heading">
       <img
         className={`${baseClass}-logo`}
-        src="https://react-router-project.d4vecarter.now.sh/spotifyLogo.png"
+        src={`${process.env.CDN}spotifyLogo.png`}
       />
       <h1>Explorer</h1>
     </Link>
