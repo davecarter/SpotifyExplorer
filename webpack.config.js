@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const { NODE_ENV, CDN } = process.env;
 
@@ -11,13 +12,14 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, "public"),
     historyApiFallback: true
   },
   output: {
-    filename: "[name].bundle.js",
-    publicPath: CDN || "/",
-    path: path.resolve(__dirname, "dist")
+    filename: "[name].[contenthash:8].js",
+    chunkFilename: "[name].[contenthash:8].js",
+    publicPath: CDN,
+    path: path.resolve(__dirname, "public")
   },
 
   module: {
@@ -31,22 +33,41 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"]
+        test: /(\.css|\.scss)$/,
+        use: [
+          NODE_ENV === "production"
+            ? MiniCssExtractPlugin.loader
+            : "style-loader",
+          "css-loader",
+          "sass-loader"
+        ]
       }
     ]
   },
 
   plugins: [
+    new webpack.HashedModuleIdsPlugin(),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(NODE_ENV),
       "process.env.CDN": JSON.stringify(CDN)
     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash:8].css",
+      chunkFilename: "[id].[contenthash:8].css"
+    }),
     new HtmlWebpackPlugin({
       inject: true,
-      hash: true,
       template: "./src/index.html",
-      filename: "index.html"
+      minify: {
+        collapseWhitespace: true,
+        keepClosingSlash: true,
+        minifyCSS: true,
+        minifyURLs: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true
+      }
     })
   ]
 };
