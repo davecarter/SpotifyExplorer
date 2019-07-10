@@ -16,5 +16,3 @@ hydrate(
   </Router>,
   DOMelement
 );
-
-export default App;

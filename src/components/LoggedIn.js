@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 const LoggedIn = ({ location }) => {
-  debugger; // eslint-disable-line
   useEffect(() => {
     const value = location.search;
     window.localStorage.setItem("search", value);

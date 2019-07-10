@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "now-build": "CDN=https://react-router-project.d4vecarter.now.sh make build"
+    "start": "make start",
+    "start:ssr": "make start_ssr",
+    "deploy": "CDN=https://react-router-project-d4vecarter.surge.sh/ make deploy"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +36,8 @@
     "style-loader": "0.23.1",
     "webpack": "4.33.0",
     "webpack-cli": "3.3.3",
-    "webpack-dev-server": "3.7.1"
+    "mini-css-extract-plugin": "0.7.0",
+    "webpack-dev-server": "3.7.1",
+    "webpack-node-externals": "1.7.2"
   }
 }
